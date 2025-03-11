@@ -1,0 +1,32 @@
+name: MCP Documentation Sync
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'docs/**'
+      - 'mcp-config.yml'
+      - '.github/workflows/mcp-sync.yml'
+
+jobs:
+  mcp_update:
+    runs-on: ubuntu-latest
+    env:
+      MCP_API_KEY: ${{ secrets.MCP_API_KEY }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Sync with MCP Registry
+        run: |
+          npx ts-node scripts/mcp-cli.ts sync
+          npx ts-node scripts/mcp-cli.ts status

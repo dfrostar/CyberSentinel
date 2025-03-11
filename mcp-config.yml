@@ -1,0 +1,16 @@
+api_version: 1.2
+connection:
+  endpoint: https://mcp.aisec.org/v3
+  auth_type: jwt_rotation
+  session_integration: true
+document_sync:
+  source_dirs:
+    - ./docs
+  encryption: 
+    algorithm: xchacha20-poly1305
+  access_controls:
+    - role: developer
+      paths: ["/architecture/**"]
+    - role: auditor  
+      paths: ["/security/**"]
+gpg_verification: true

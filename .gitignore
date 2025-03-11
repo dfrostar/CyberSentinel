@@ -55,3 +55,7 @@ Thumbs.db
 # AI specific
 ai-models/
 model-cache/
+
+# MCP Integration
+mcp-credentials.env
+.mcp_cache/
