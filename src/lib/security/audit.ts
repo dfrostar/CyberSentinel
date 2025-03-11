@@ -59,7 +59,7 @@ export class SecurityAudit {
       }
       
       // Force session expiration
-      const expirationResult = await sessionAPI.markSessionExpired(sessionId);
+      await sessionAPI.markSessionExpired(sessionId);
       
       // Check if session is properly expired
       const expiredSession = await sessionAPI.validateSession(sessionId);
