@@ -45,6 +45,7 @@ npm run security:audit
 
 - [Architecture Overview](./docs/ARCHITECTURE.md)
 - [Development Standards](./docs/DEVELOPMENT_STANDARDS.md)
+- [MCP Operations Manual](docs/MCP-OPERATIONS.md)
 
 ## Security
 
